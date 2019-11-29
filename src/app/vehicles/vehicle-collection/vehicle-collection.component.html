@@ -1,1 +1,97 @@
-<p>vehicle-collection works!</p>
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">All</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="available-tab" data-toggle="tab" href="#available" role="tab" aria-controls="available" aria-selected="false">Available</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="car-tab" data-toggle="tab" href="#car" role="tab" aria-controls="car" aria-selected="false">Cars</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="motorbike-tab" data-toggle="tab" href="#motorbike" role="tab" aria-controls="motorbike" aria-selected="false">Motorbikes</a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="car-tab">
+    <table class="table table-hover">
+      <thead style="background-color: gray">
+      <tr>
+        <th>Plate Number</th>
+        <th>Vehicle Type</th>
+        <th>Make</th>
+        <th>Model</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let veh of vehicles">
+        <td (click)="onSelect(veh)">{{veh.plateNo}}</td>
+        <td>{{veh.vehicleType}}</td>
+        <td>{{veh.make}}</td>
+        <td>{{veh.model}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="tab-pane fade" id="available" role="tabpanel" aria-labelledby="available-tab">
+    <table class="table table-hover">
+      <thead style="background-color: gray">
+      <tr>
+        <th>Plate Number</th>
+        <th>Vehicle Type</th>
+        <th>Make</th>
+        <th>Model</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let veh of vehicles">
+        <td (click)="onSelect(veh)" *ngIf="veh.availability==true">{{veh.plateNo}}</td>
+        <td *ngIf="veh.availability==true">{{veh.vehicleType}}</td>
+        <td *ngIf="veh.availability==true">{{veh.make}}</td>
+        <td *ngIf="veh.availability==true">{{veh.model}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="tab-pane fade" id="car" role="tabpanel" aria-labelledby="profile-tab">
+    <table class="table table-hover">
+      <thead style="background-color: gray">
+      <tr>
+        <th>Plate Number</th>
+        <th>Vehicle Type</th>
+        <th>Make</th>
+        <th>Model</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let veh of vehicles">
+        <td (click)="onSelect(veh)" *ngIf="veh.vehicleType=='Car'">{{veh.plateNo}}</td>
+        <td *ngIf="veh.vehicleType=='Car'">{{veh.vehicleType}}</td>
+        <td *ngIf="veh.vehicleType=='Car'">{{veh.make}}</td>
+        <td *ngIf="veh.vehicleType=='Car'">{{veh.model}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="tab-pane fade" id="motorbike" role="tabpanel" aria-labelledby="contact-tab">
+    <table class="table table-hover">
+      <thead style="background-color: gray">
+      <tr>
+        <th>Plate Number</th>
+        <th>Vehicle Type</th>
+        <th>Make</th>
+        <th>Model</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let veh of vehicles">
+        <td (click)="onSelect(veh)" *ngIf="veh.vehicleType=='Motorbike'">{{veh.plateNo}}</td>
+        <td *ngIf="veh.vehicleType=='Motorbike'">{{veh.vehicleType}}</td>
+        <td *ngIf="veh.vehicleType=='Motorbike'">{{veh.make}}</td>
+        <td *ngIf="veh.vehicleType=='Motorbike'">{{veh.model}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

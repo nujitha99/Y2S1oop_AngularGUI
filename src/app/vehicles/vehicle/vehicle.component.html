@@ -1,1 +1,47 @@
-<p>vehicle works!</p>
+<h4>Search Vehicle</h4>
+<form #form="ngForm" autocomplete="off">
+  <div>
+    <div class="form-group">
+      <input name="plateNo" #plateNo="ngModel" [(ngModel)]="service.formData.plateNo" class="form-control" placeholder="Plate Number" required="required">
+    </div>
+    <div class="alert alert-danger" *ngIf="plateNo.touched && plateNo.invalid">
+      Plate number is required
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <input type="text" name="sDate" #sDate="ngModel" [(ngModel)]="service.formData.pickUpDate" class="form-control" placeholder="Pick-up Date" onfocus="(this.type='date')" required="required">
+      </div>
+      <div class="alert alert-danger" *ngIf="sDate.touched && sDate.invalid">
+        pick-up date is required is required
+      </div>
+      <div class="form-group col-md-6">
+        <input type="text" name="eDate" #eDate="ngModel" [(ngModel)]="service.formData.dropOffDate" class="form-control" placeholder="Drop-off Date" onfocus="(this.type='date')" required="required">
+      </div>
+      <div class="alert alert-danger" *ngIf="eDate.touched && eDate.invalid">
+        drop date is required
+      </div>
+    </div>
+    <div class="form-group">
+      <button type="submit" (click)="checkAvailability()" class="btn btn-info btn-block" [disabled]="form.invalid">Check Availability</button>
+    </div>
+  </div>
+  <div>
+    <table class="table borderless">
+      <tbody>
+      <tr>
+        <td>{{vehicleType}}</td>
+      </tr>
+      <tr>
+        <td>{{make}}</td>
+      </tr>
+      <tr>
+        <td>{{model}}</td>
+      </tr>
+      <tr>
+        <td>{{odo}}</td>
+      </tr>
+      </tbody>
+    </table>
+    <button type="submit" (click)="confirmBooking()" class="btn btn-info btn-block" [disabled]="form.invalid">Confirm Booking</button>
+  </div>
+</form>

@@ -3,16 +3,27 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { VehiclesComponent } from './vehicles/vehicles.component';
+import { VehicleComponent } from './vehicles/vehicle/vehicle.component';
+import { VehicleCollectionComponent } from './vehicles/vehicle-collection/vehicle-collection.component';
+import {VehicleService} from './shared/vehicle.service';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    VehiclesComponent,
+    VehicleComponent,
+    VehicleCollectionComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [VehicleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
