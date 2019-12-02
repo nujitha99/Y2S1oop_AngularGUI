@@ -1,31 +1,41 @@
 <h4>Search Vehicle</h4>
-<form #form="ngForm" autocomplete="off">
+<!--form to search a vehicle's availability-->
+<form #form1="ngForm" autocomplete="off">
   <div>
+    <!--    plate number input field -->
     <div class="form-group">
-      <input name="plateNo" #plateNo="ngModel" [(ngModel)]="service.formData.plateNo" class="form-control" placeholder="Plate Number" required="required">
+      <input #plateNo="ngModel" [(ngModel)]="service.formData.plateNo" class="form-control" name="plateNo"
+             placeholder="Plate Number" required="required">
     </div>
-    <div class="alert alert-danger" *ngIf="plateNo.touched && plateNo.invalid">
-      Plate number is required
+    <div *ngIf="plateNo.touched && plateNo.invalid" class="alert alert-danger">
+      required
     </div>
+    <!--    date input fields-->
     <div class="form-row">
       <div class="form-group col-md-6">
-        <input type="text" name="sDate" #sDate="ngModel" [(ngModel)]="service.formData.pickUpDate" class="form-control" placeholder="Pick-up Date" onfocus="(this.type='date')" required="required">
+        <input #sDate="ngModel" [(ngModel)]="service.formData.pickUpDate" class="form-control" name="sDate"
+               onfocus="(this.type='date')"
+               placeholder="Pick-up Date" required="required" type="text">
       </div>
-      <div class="alert alert-danger" *ngIf="sDate.touched && sDate.invalid">
-        pick-up date is required is required
+      <div *ngIf="sDate.touched && sDate.invalid" class="alert alert-danger">
+        required
       </div>
       <div class="form-group col-md-6">
-        <input type="text" name="eDate" #eDate="ngModel" [(ngModel)]="service.formData.dropOffDate" class="form-control" placeholder="Drop-off Date" onfocus="(this.type='date')" required="required">
+        <input #eDate="ngModel" [(ngModel)]="service.formData.dropOffDate" class="form-control" name="eDate"
+               onfocus="(this.type='date')"
+               placeholder="Drop-off Date" required="required" type="text">
       </div>
-      <div class="alert alert-danger" *ngIf="eDate.touched && eDate.invalid">
-        drop date is required
+      <div *ngIf="eDate.touched && eDate.invalid" class="alert alert-danger">
+        required
       </div>
     </div>
+    <!--    check availability button-->
     <div class="form-group">
-      <button type="submit" (click)="checkAvailability()" class="btn btn-info btn-block" [disabled]="form.invalid">Check Availability</button>
+      <button (click)="checkAvailability()" [disabled]="form1.invalid" class="btn btn-info btn-block" type="submit">
+        Check Availability
+      </button>
     </div>
-  </div>
-  <div>
+    <!--    display summary of the selected vehicle-->
     <table class="table borderless">
       <tbody>
       <tr>
@@ -40,8 +50,37 @@
       <tr>
         <td>{{odo}}</td>
       </tr>
+      <!--      toggle switch-->
+      <tr>
+        <div class="custom-control custom-switch">
+          <input class="custom-control-input" id="customSwitches" type="checkbox">
+          <label class="custom-control-label" for="customSwitches">Toggle this switch if you need the helmet</label>
+        </div>
+      </tr>
       </tbody>
     </table>
-    <button type="submit" (click)="confirmBooking()" class="btn btn-info btn-block" [disabled]="form.invalid">Confirm Booking</button>
   </div>
+</form>
+<!--form to enter customer details-->
+<form #form2="ngForm" autocomplete="off">
+  <div class="form-group">
+    <!--    enter customer name field-->
+    <input #customerName="ngModel" [(ngModel)]="service.formData.customerName" class="form-control" name="customerName"
+           placeholder="Your Name" required="required">
+  </div>
+  <div *ngIf="customerName.touched && customerName.invalid" class="alert alert-danger">
+    name is required
+  </div>
+  <!--  enter customer contact number field-->
+  <div class="form-group">
+    <input #contactNo="ngModel" [(ngModel)]="service.formData.contactNo" class="form-control" maxlength="10"
+           name="contactNo" placeholder="Contact Number" required="required">
+  </div>
+  <div *ngIf="contactNo.touched && customerName.invalid" class="alert alert-danger">
+    required and should be valid
+  </div>
+  <!--  confirm booking button-->
+  <button (click)="confirmBooking()" [disabled]="form1.invalid || form2.invalid" class="btn btn-info btn-block"
+          type="submit">Confirm Booking
+  </button>
 </form>

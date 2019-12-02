@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {VehicleService} from '../../shared/vehicle.service';
 import {Vehicle} from '../../shared/vehicle.model';
 import {Booking} from '../../shared/booking.model';
@@ -9,8 +9,11 @@ import {Booking} from '../../shared/booking.model';
   styleUrls: ['./vehicle-collection.component.css']
 })
 export class VehicleCollectionComponent implements OnInit {
-  vehicles: Vehicle[];
-  constructor(private  service: VehicleService) { }
+  vehicles: Vehicle[]; // list to store retrieved vehicle objects
+
+  // constructor
+  constructor(private  service: VehicleService) {
+  }
 
   ngOnInit() {
     this.service.getVehicle().subscribe(
@@ -19,6 +22,7 @@ export class VehicleCollectionComponent implements OnInit {
       });
   }
 
+  // sets the plate number in the input field when clicked on the table's plate number field
   onSelect(booking: Booking) {
     this.service.formData = Object.assign({}, booking);
   }

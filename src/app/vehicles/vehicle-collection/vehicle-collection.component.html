@@ -1,19 +1,32 @@
-<ul class="nav nav-tabs" id="myTab" role="tablist">
+<!--navigation pane-->
+<ul class="nav nav-pills" id="myTab" role="tablist">
+  <!--  all-->
   <li class="nav-item">
-    <a class="nav-link active" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">All</a>
+    <a aria-controls="all" aria-selected="true" class="nav-link active" data-toggle="tab" href="#all" id="all-tab"
+       role="tab">All</a>
   </li>
+  <!--  available-->
   <li class="nav-item">
-    <a class="nav-link" id="available-tab" data-toggle="tab" href="#available" role="tab" aria-controls="available" aria-selected="false">Available</a>
+    <a aria-controls="available" aria-selected="false" class="nav-link" data-toggle="tab" href="#available"
+       id="available-tab"
+       role="tab">Available</a>
   </li>
+  <!--  cars-->
   <li class="nav-item">
-    <a class="nav-link" id="car-tab" data-toggle="tab" href="#car" role="tab" aria-controls="car" aria-selected="false">Cars</a>
+    <a aria-controls="car" aria-selected="false" class="nav-link" data-toggle="tab" href="#car" id="car-tab" role="tab">Cars</a>
   </li>
+  <!--  motorbikes-->
   <li class="nav-item">
-    <a class="nav-link" id="motorbike-tab" data-toggle="tab" href="#motorbike" role="tab" aria-controls="motorbike" aria-selected="false">Motorbikes</a>
+    <a aria-controls="motorbike" aria-selected="false" class="nav-link" data-toggle="tab" href="#motorbike"
+       id="motorbike-tab"
+       role="tab">Motorbikes</a>
   </li>
 </ul>
+<!--end of navigation pane-->
+<!--table view-->
 <div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="car-tab">
+  <!--  all vehicles tab-->
+  <div aria-labelledby="car-tab" class="tab-pane fade show active" id="all" role="tabpanel">
     <table class="table table-hover">
       <thead style="background-color: gray">
       <tr>
@@ -33,7 +46,8 @@
       </tbody>
     </table>
   </div>
-  <div class="tab-pane fade" id="available" role="tabpanel" aria-labelledby="available-tab">
+  <!--  available vehicles tab-->
+  <div aria-labelledby="available-tab" class="tab-pane fade" id="available" role="tabpanel">
     <table class="table table-hover">
       <thead style="background-color: gray">
       <tr>
@@ -53,7 +67,8 @@
       </tbody>
     </table>
   </div>
-  <div class="tab-pane fade" id="car" role="tabpanel" aria-labelledby="profile-tab">
+  <!--  cars only tab-->
+  <div aria-labelledby="profile-tab" class="tab-pane fade" id="car" role="tabpanel">
     <table class="table table-hover">
       <thead style="background-color: gray">
       <tr>
@@ -73,7 +88,8 @@
       </tbody>
     </table>
   </div>
-  <div class="tab-pane fade" id="motorbike" role="tabpanel" aria-labelledby="contact-tab">
+  <!--  motorbikes only tab-->
+  <div aria-labelledby="contact-tab" class="tab-pane fade" id="motorbike" role="tabpanel">
     <table class="table table-hover">
       <thead style="background-color: gray">
       <tr>
